@@ -7,25 +7,12 @@ import Typography from "@material-ui/core/Typography";
 import ReactHtmlParser from "react-html-parser";
 import Bread_Crumbs from "../../components/Bread_Crumb";
 import DetailsIcon from "@material-ui/icons/Details";
-// Import Swiper React components;
-import { Swiper, SwiperSlide } from "swiper/react";
 
-// import Swiper core and required modules
-import SwiperCore, { Navigation, Thumbs } from "swiper";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
 import ProductItem from "../../components/product/ProductItem";
-
-// install Swiper modules
-SwiperCore.use([Navigation, Thumbs]);
 
 const DetailProduct = (props) => {
   const [product] = useState(props.product);
   const [product_other] = useState(props.product_other);
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   const { state, dispatch } = useContext(DataContext);
   const { cart } = state;
@@ -40,7 +27,12 @@ const DetailProduct = (props) => {
         <div className="col-md-9 col-sm-12">
           <div className="row">
             <div className="col-md-5">
-              <Swiper
+              <img
+                src={product.images[0].url}
+                alt="Ảnh sản phẩm"
+                style={{ maxWidth: "100%" }}
+              />
+              {/* <Swiper
                 style={{
                   "--swiper-navigation-color": "#fff",
                   "--swiper-pagination-color": "#fff",
@@ -69,7 +61,7 @@ const DetailProduct = (props) => {
                     <img src={img.url} alt={product.title} />
                   </SwiperSlide>
                 ))}
-              </Swiper>
+              </Swiper> */}
             </div>
             <div className="col-md-7 mt-1 pl-4 pl-sm-0">
               <h1 className="text-capitalize fs-largest title-product">
